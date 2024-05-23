@@ -18,7 +18,7 @@ set(PROJECT_SOURCES
         main.cpp
 
         mainwindow.h mainwindow.cpp mainwindow.ui
-        newmanagerdialog.h newmanagerdialog.cpp newmanagerdialog.ui
+        netmanagerdialog.h netmanagerdialog.cpp netmanagerdialog.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

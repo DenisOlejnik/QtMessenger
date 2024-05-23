@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>NewManagerDialog</class>
- <widget class="QDialog" name="NewManagerDialog">
+ <class>NetManagerDialog</class>
+ <widget class="QDialog" name="NetManagerDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -43,18 +43,33 @@
     </widget>
    </item>
    <item row="0" column="1">
-    <widget class="QLineEdit" name="hostEdit"/>
+    <widget class="QLineEdit" name="hostEdit">
+     <property name="text">
+      <string>127.0.0.1</string>
+     </property>
+    </widget>
    </item>
    <item row="1" column="1">
-    <widget class="QLineEdit" name="portEdit"/>
+    <widget class="QLineEdit" name="portEdit">
+     <property name="text">
+      <string>65222</string>
+     </property>
+    </widget>
    </item>
    <item row="2" column="1">
-    <widget class="QLineEdit" name="usernameEdit"/>
+    <widget class="QLineEdit" name="usernameEdit">
+     <property name="text">
+      <string>server_name</string>
+     </property>
+    </widget>
    </item>
    <item row="3" column="1">
     <widget class="QCheckBox" name="checkHost">
      <property name="text">
       <string>Host</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
      </property>
     </widget>
    </item>
@@ -75,7 +90,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>NewManagerDialog</receiver>
+   <receiver>NetManagerDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -91,7 +106,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>NewManagerDialog</receiver>
+   <receiver>NetManagerDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
