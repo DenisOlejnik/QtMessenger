@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 
+#include "netmanagerdialog.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -15,8 +16,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void onNetManagerOpenRequested();
+
 private:
     Ui::MainWindow *ui;
-
+    NetManagerDialog *m_netManagerDialog;
 };
 #endif // MAINWINDOW_H

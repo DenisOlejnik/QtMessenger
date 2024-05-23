@@ -6,10 +6,21 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    connect(ui->actionNetworkManage, &QAction::triggered, this, &MainWindow::onNetManagerOpenRequested);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::onNetManagerOpenRequested()
+{
+    m_netManagerDialog = new NetManagerDialog();
+
+    if (m_netManagerDialog->exec() != QDialog::Accepted) {
+        return;
+    }
 }
 
