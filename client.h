@@ -13,8 +13,8 @@ public:
     void connectToServer(const QString &host, quint16 port);
     void sendMessage();
 
-    QTcpSocket* getSocket() const;
-    QString getUsername() const;
+    QTcpSocket* getSocket() const { return m_socket; }
+    QString getUsername() const { return m_username; }
 
 private slots:
     void onConnected();
@@ -24,7 +24,6 @@ private slots:
 private:
     QTcpSocket *m_socket;
     QString m_username;
-
 };
 
 #endif // CLIENT_H

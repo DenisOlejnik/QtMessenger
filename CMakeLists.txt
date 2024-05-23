@@ -18,6 +18,7 @@ set(PROJECT_SOURCES
         main.cpp
 
         client.h client.cpp
+        messageinfo.h messageinfo.cpp
 
         mainwindow.h mainwindow.cpp mainwindow.ui
         netmanagerdialog.h netmanagerdialog.cpp netmanagerdialog.ui

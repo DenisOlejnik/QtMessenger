@@ -16,14 +16,9 @@ void Client::connectToServer(const QString &host, quint16 port)
     m_socket->connectToHost(host, port);
 }
 
-QTcpSocket *Client::getSocket() const
+void Client::sendMessage()
 {
-    return m_socket;
-}
 
-QString Client::getUsername() const
-{
-    return m_username;
 }
 
 void Client::onConnected()
