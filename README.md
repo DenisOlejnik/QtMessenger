@@ -16,31 +16,16 @@ The project is still worth working on. From the nearest tasks:
 ## Screenshots
 
 1. First application launch
-<details>
-  <summary>toggleSpoiler</summary>
-    ![Initial](img/0_initial.png)
-</details>
+![Initial](img/0_initial.png)
 
 2. Connection Manager
-<details>
-  <summary>toggleSpoiler</summary>
-    ![netManager](img/1_netManager.png)
-</details>
+![netManager](img/1_netManager.png)
 
 3. Client and server connection
-<details>
-  <summary>toggleSpoiler</summary>
-    ![Connected](img/2_connected.png)
-</details>
+![Connected](img/2_connected.png)
 
 4. Sending and receiving messages
-<details>
-  <summary>toggleSpoiler</summary>
-    ![NewMessages](img/3_messages.png)
-</details>
+![NewMessages](img/3_messages.png)
 
 5. Connecting another user
-<details>
-  <summary>toggleSpoiler</summary>
-    ![UserConnected](img/4_anotheruser.png)
-</details>
+![UserConnected](img/4_anotheruser.png)
