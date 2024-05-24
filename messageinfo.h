@@ -4,23 +4,27 @@
 #include <QObject>
 #include <QDateTime>
 
-class Client;
-
 class MessageInfo : public QObject
 {
     Q_OBJECT
 public:
-    explicit MessageInfo(QObject *parent = nullptr);
-    MessageInfo(Client *sender, const QString &text, const QDateTime &dateTime, QObject *parent = nullptr);
+    MessageInfo(QObject *parent = nullptr);
+    MessageInfo(const QString &sender, const QString &text, const QDateTime &dateTime = QDateTime::currentDateTime(), QObject *parent = nullptr);
+    MessageInfo(bool isService, const QString &text, QObject *parent = nullptr);
 
-    Client* sender() const;
-    QString text() const;
-    QDateTime dateTime() const;
+    QString sender() const { return m_sender; }
+    QString text() const { return m_text; }
+    QDateTime dateTime() const { return m_dateTime; }
+    bool isServiceMsg() const { return m_isService;}
+
+    friend QDataStream &operator<<(QDataStream &out, const MessageInfo &message);
+    friend QDataStream &operator>>(QDataStream &in, MessageInfo &message);
 
 private:
-    Client *m_sender;
-    QString m_text;
-    QDateTime m_dateTime;
+    QString m_sender = nullptr;
+    QString m_text = nullptr;
+    QDateTime m_dateTime = QDateTime();
+    bool m_isService = false;
 };
 
 #endif // MESSAGEINFO_H

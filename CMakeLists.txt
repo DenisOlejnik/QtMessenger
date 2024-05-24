@@ -19,9 +19,11 @@ set(PROJECT_SOURCES
 
         client.h client.cpp
         messageinfo.h messageinfo.cpp
+        server.h server.cpp
 
         mainwindow.h mainwindow.cpp mainwindow.ui
         netmanagerdialog.h netmanagerdialog.cpp netmanagerdialog.ui
+        message.h message.cpp message.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

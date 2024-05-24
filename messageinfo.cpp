@@ -1,28 +1,36 @@
 #include "messageinfo.h"
 
 MessageInfo::MessageInfo(QObject *parent)
-    : QObject{parent}, m_sender(nullptr), m_text(""), m_dateTime(QDateTime::currentDateTime())
+    : QObject{parent}
 {
 
 }
 
-MessageInfo::MessageInfo(Client *sender, const QString &text, const QDateTime &dateTime, QObject *parent)
-    : QObject{parent}, m_sender(sender), m_text(text), m_dateTime(dateTime)
+MessageInfo::MessageInfo(const QString &sender, const QString &text, const QDateTime &dateTime, QObject *parent)
+    : QObject{parent},
+      m_sender(sender),
+      m_text(text),
+      m_dateTime(dateTime)
 {
 
 }
 
-Client *MessageInfo::sender() const
+MessageInfo::MessageInfo(bool isService, const QString &text, QObject *parent)
+    : QObject{parent},
+      m_isService(isService),
+      m_text(text)
 {
-    return m_sender;
+
 }
 
-QString MessageInfo::text() const
-{
-    return m_text;
+QDataStream &operator<<(QDataStream &out, const MessageInfo &message) {
+    out << message.m_sender << message.m_text << message.m_dateTime << message.m_isService;
+
+    return out;
 }
 
-QDateTime MessageInfo::dateTime() const
-{
-    return m_dateTime;
+QDataStream &operator>>(QDataStream &in, MessageInfo &message) {
+    in >> message.m_sender >> message.m_text >> message.m_dateTime >> message.m_isService;
+
+    return in;
 }

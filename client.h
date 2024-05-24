@@ -1,6 +1,8 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
+#include "messageinfo.h"
+
 #include <QObject>
 #include <QTcpSocket>
 
@@ -11,10 +13,14 @@ public:
     explicit Client(const QString username, QObject *parent = nullptr);
 
     void connectToServer(const QString &host, quint16 port);
-    void sendMessage();
+    void sendMessage(const QString &text);
 
     QTcpSocket* getSocket() const { return m_socket; }
     QString getUsername() const { return m_username; }
+
+signals:
+    void messageReceived(const MessageInfo &message);
+    void messageSent(const MessageInfo &message);
 
 private slots:
     void onConnected();
